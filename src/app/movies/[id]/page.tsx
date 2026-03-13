@@ -141,13 +141,13 @@ export default function MovieDetailPage() {
 
   async function handleToggleVote() {
     try {
-      if (!user?.email) return;
+      if (!user?.email || !movie) return;
       if (myVote) {
         await db.transact(db.tx.votes[myVote.id].delete());
       } else {
         await db.transact(
           db.tx.votes[id()].update({
-            movieId: movie.id,
+            movieId: movie!.id,
             voterEmail: user.email,
             createdAt: Date.now(),
           }),
@@ -161,6 +161,7 @@ export default function MovieDetailPage() {
 
   async function handleToggleWatched() {
     try {
+      if (!movie) return;
       const nextStatus = isWatched ? "planned" : "watched";
       await db.transact(
         db.tx.movies[movie.id].update({
