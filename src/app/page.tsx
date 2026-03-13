@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import db from "../lib/db";
 import { AddMovieForm } from "../components/AddMovieForm";
 import { MovieCard, Movie } from "../components/MovieCard";
