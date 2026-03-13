@@ -5,6 +5,7 @@ export type Movie = {
   title: string;
   genre: string;
   posterUrl?: string | null;
+  createdAt: number;
   status: string;
 };
 
