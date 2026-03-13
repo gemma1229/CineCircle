@@ -280,7 +280,7 @@ export default function MovieDetailPage() {
       <CommentSection
         movieId={movie.id}
         comments={comments}
-        userEmail={user.email ?? null}
+        userEmail={user?.email ?? null}
       />
     </div>
   );
